@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\grid\GridView;
+use yii\widgets\ListView;
+use yii\data\ActiveDataProvider;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
@@ -10,6 +14,7 @@ $this->title = $model->what;
 $this->params['breadcrumbs'][] = ['label' => 'Events', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="event-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -35,5 +40,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+
+</div>
+
+<div class = "event_members-view">
+<h2>Список участников на мероприятии</h2>
+
+<?php $provider = new ActiveDataProvider(['query' => $model->getMembers()]); ?>
+
+<?= ListView::widget([
+        'dataProvider' => $provider,
+        'itemView' => '../members/_members',
+    ]); 
+ ?>
 
 </div>

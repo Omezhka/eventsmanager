@@ -33,6 +33,7 @@ class Event extends \yii\db\ActiveRecord
             [['datestart_event', 'datestop_event', 'time_start', 'time_stop', 'what'], 'required'],
             [['datestart_event', 'datestop_event', 'time_start', 'time_stop'], 'safe'],
             [['what'], 'string', 'max' => 500],
+            [['event_list'], 'safe'],
         ];
     }
 
@@ -50,4 +51,23 @@ class Event extends \yii\db\ActiveRecord
             'what' => 'Название мероприятия',
         ];
     }
+
+    public function getMembers()
+    {
+        return $this->hasMany(Members::className(), ['id_member' => 'id_member']) // 1 id - members, 2 id - event_members
+            ->viaTable('event_members', ['id_event' => 'id_event']);
+           // ->all(); // 1 id - event_members, 2 id - event
+    }
+
+/*    public function behaviors()
+    {
+        return [
+            [
+                'class' => \app\components\behaviors\ManyHasManyBehavior::className(),
+                'relations' => [
+                    'event' => 'event_list',                   
+                ],
+            ],
+        ];  
+    }*/
 }
