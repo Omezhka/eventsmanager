@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
 
 /**
  * EventController implements the CRUD actions for Event model.
@@ -29,11 +30,11 @@ class EventController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['create'],
+                'only' => ['create', 'my'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['create'],
+                        'actions' => ['create' , 'my'],
                         'roles' => ['@'],
                     ],
                 ],
@@ -56,6 +57,23 @@ class EventController extends Controller
         ]);
     }
 
+        /**
+     * Lists all Event models.
+     * @return mixed
+     */
+    public function actionMy()
+    {
+        $searchModel = new EventSearch();
+        $events = Event::find()->where(['id_owner' => Yii::$app->user->identity->id]);
+        $dataProvider = new ActiveDataProvider(['query' => $events]);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
     /**
      * Displays a single Event model.
      * @param integer $id
@@ -77,7 +95,6 @@ class EventController extends Controller
     {
         $model = new Event();
         $model->id_owner = Yii::$app->user->identity->id;
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_event]);
         } else {
@@ -86,6 +103,7 @@ class EventController extends Controller
             ]);
         }
     }
+
 
 
     /**

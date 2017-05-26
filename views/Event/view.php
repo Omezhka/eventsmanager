@@ -6,7 +6,6 @@ use yii\grid\GridView;
 use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
 
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
@@ -27,8 +26,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'time_start',
             'time_stop',
             'what',
+            'id_owner',
         ],
     ]) ?>
+
+    <p>
+    
+    </p>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
