@@ -8,6 +8,7 @@ use app\models\EventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * EventController implements the CRUD actions for Event model.
@@ -24,6 +25,17 @@ class EventController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['create'],
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
@@ -64,6 +76,7 @@ class EventController extends Controller
     public function actionCreate()
     {
         $model = new Event();
+        $model->id_owner = Yii::$app->user->identity->id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_event]);
@@ -73,6 +86,7 @@ class EventController extends Controller
             ]);
         }
     }
+
 
     /**
      * Updates an existing Event model.

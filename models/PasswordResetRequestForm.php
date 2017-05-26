@@ -19,8 +19,6 @@ class PasswordResetRequestForm extends Model
     {
         return [
             ['email', 'trim'],
-            ['email', 'htmlspecialchars'],
-            ['email', 'urldecode'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',

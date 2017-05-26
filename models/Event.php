@@ -13,6 +13,7 @@ use Yii;
  * @property string $time_start
  * @property string $time_stop
  * @property string $what
+ * @property integer $id_owner
  */
 class Event extends \yii\db\ActiveRecord
 {

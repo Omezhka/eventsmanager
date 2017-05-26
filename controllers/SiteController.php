@@ -78,7 +78,7 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
-    }
+      }
  
 
     /**
@@ -192,18 +192,4 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-
-   /* public function actionAddAdmin() {
-        $model = User::find()->where(['username' => 'admin'])->one();
-        if (empty($model)) {
-            $user = new User();
-            $user->username = 'admin';
-            $user->email = 'admin@кодер.укр';
-            $user->setPassword('admin');
-            $user->generateAuthKey();
-            if ($user->save()) {
-                echo 'good';
-            }
-        }
-    }*/
 }
