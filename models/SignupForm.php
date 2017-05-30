@@ -13,7 +13,7 @@ class SignupForm extends Model
 {
  
     public $username;
-    public $email;
+    public $mail;
     public $password;
     public $firstname_rus;
     public $firstname_eng;
@@ -70,11 +70,11 @@ class SignupForm extends Model
             ['company','required'],
             ['company', 'string', 'min' => 1, 'max' => 255],
 
-            ['email', 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
-            ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
+            ['mail', 'trim'],
+            ['mail', 'required'],
+            ['mail', 'email'],
+            ['mail', 'string', 'max' => 255],
+            ['mail', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
         ];
     }
 
@@ -113,7 +113,7 @@ class SignupForm extends Model
         $user -> country = $this -> country;
         $user -> city = $this -> city;
         $user -> company = $this -> company;
-        $user -> email = $this -> email;
+        $user -> mail = $this -> mail;
         $user -> setPassword($this -> password);
         $user -> generateAuthKey();
         return $user -> save() ? $user : null;
