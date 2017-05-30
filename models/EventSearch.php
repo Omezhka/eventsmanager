@@ -19,7 +19,7 @@ class EventSearch extends Event
     {
         return [
             [['id_event'], 'integer'],
-            [['datestart_event', 'datestop_event', 'time_start', 'time_stop', 'what'], 'safe'],
+            [['datetimestart_event', 'datetimestop_event',  'name'], 'safe'],
         ];
     }
 
@@ -60,13 +60,11 @@ class EventSearch extends Event
         // grid filtering conditions
         $query->andFilterWhere([
             'id_event' => $this->id_event,
-            'datestart_event' => $this->datestart_event,
-            'datestop_event' => $this->datestop_event,
-            'time_start' => $this->time_start,
-            'time_stop' => $this->time_stop,
+            'datetimestart_event' => $this->datetimestart_event,
+            'datetimestop_event' => $this->datetimestop_event,
         ]);
 
-        $query->andFilterWhere(['like', 'what', $this->what]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

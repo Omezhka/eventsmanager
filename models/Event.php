@@ -8,11 +8,9 @@ use Yii;
  * This is the model class for table "event".
  *
  * @property integer $id_event
- * @property string $datestart_event
- * @property string $datestop_event
- * @property string $time_start
- * @property string $time_stop
- * @property string $what
+ * @property string $datetimestart_event
+ * @property string $datetimestop_event
+ * @property string $name
  * @property integer $id_owner
  */
 class Event extends \yii\db\ActiveRecord
@@ -31,9 +29,9 @@ class Event extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['datestart_event', 'datestop_event', 'time_start', 'time_stop', 'what'], 'required'],
-            [['datestart_event', 'datestop_event', 'time_start', 'time_stop'], 'safe'],
-            [['what'], 'string', 'max' => 500],
+            [['datetimestart_event', 'datetimestop_event', 'name'], 'required'],
+            [['datetimestart_event', 'datetimestop_event'], 'safe'],
+            [['name'], 'string', 'max' => 500],
             [['event_list'], 'safe'],
         ];
     }
@@ -45,11 +43,9 @@ class Event extends \yii\db\ActiveRecord
     {
         return [
             'id_event' => 'ID мероприятия',
-            'datestart_event' => 'Дата начала мероприятия',
-            'datestop_event' => 'Дата окончания мероприятия',
-            'time_start' => 'Время начала мероприятия',
-            'time_stop' => 'Время окончания мероприятия',
-            'what' => 'Название мероприятия',
+            'datetimestart_event' => 'Дата и время начала мероприятия',
+            'datetimestop_event' => 'Дата и время окончания мероприятия',
+            'name' => 'Название мероприятия',
         ];
     }
 

@@ -29,7 +29,7 @@ AppAsset::register($this);
     <?php
 
         NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'OurDiploma',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -37,10 +37,10 @@ AppAsset::register($this);
     ]);
     
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-        ['label' => 'Mои мероприятия','url' => ['/event/my']]
+        ['label' => 'Mои мероприятия','url' => ['/event/my']],
+        ['label' => 'О нас', 'url' => ['/site/about']],
+        ['label' => 'Контакты', 'url' => ['/site/contact']],
+        
     ];
     
     if (Yii::$app->user->isGuest) {

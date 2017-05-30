@@ -9,7 +9,7 @@ use yii\data\ActiveDataProvider;
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
-$this->title = $model->what;
+$this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Events', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -21,17 +21,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'datestart_event',
-            'datestop_event',
-            'time_start',
-            'time_stop',
-            'what',
+            'datetimestart_event',
+            'datetimestop_event',
+            'name',
             'id_owner',
         ],
     ]) ?>
 
     <p>
-    
+
     </p>
 
     <p>

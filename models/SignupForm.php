@@ -77,6 +77,20 @@ class SignupForm extends Model
             ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
         ];
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'firstname_rus' => 'Имя (rus)',
+            'firstname_eng' => 'Имя (eng)',
+            'lastname_rus' => 'Фамилия (rus)',
+            'lastname_eng' => 'Фамилия (eng)',
+            'country' => 'Страна',
+            'city' => 'Город',
+            'company' => 'Компания',
+            'mail' => 'E-mail',
+        ];
+    }
  
     /**
      * Signs user up.

@@ -40,11 +40,11 @@ class EventMembers extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_event_members' => 'Id Event Members',
-            'id_event' => 'Id Event',
-            'id_member' => 'Id Member',
-            'id_type' => 'Id Type',
-            'payment' => 'Payment',
+            'id_event' => 'ID мероприятия',
+            'datetimestart_event' => 'Дата и время начала мероприятия',
+            'datetimestop_event' => 'Дата и время окончания мероприятия',
+            'name' => 'Название мероприятия',
+            'payment' => 'Оплата',
         ];
     }
 }

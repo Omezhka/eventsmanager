@@ -17,15 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_event') ?>
 
-    <?= $form->field($model, 'datestart_event') ?>
+    <?= $form->field($model, 'datetimestart_event') ?>
 
-    <?= $form->field($model, 'datestop_event') ?>
-
-    <?= $form->field($model, 'time_start') ?>
-
-    <?= $form->field($model, 'time_stop') ?>
-
-    <?php // echo $form->field($model, 'what') ?>
+    <?= $form->field($model, 'datetimestop_event') ?>
+    
+    <?php // echo $form->field($model, 'name') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
