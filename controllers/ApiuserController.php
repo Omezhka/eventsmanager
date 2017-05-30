@@ -5,5 +5,5 @@ use yii\rest\ActiveController;
  
 class ApiuserController extends ActiveController
 {
-    public $modelClass = 'app\models\Members';
+    public $modelClass = 'app\models\User';
 }
