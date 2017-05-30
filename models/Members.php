@@ -54,4 +54,21 @@ class Members extends \yii\db\ActiveRecord
             'mail' => 'E-mail',
         ];
     }
+
+    public function fields()
+    {
+        $fields = parent::fields();
+
+        // удаляем небезопасные поля
+        unset(
+            $fields['auth_key'],
+            $fields['password_hash'],
+            $fields['password_reset_token'],
+            $fields['status'],
+            $fields['created_at'],
+            $fields['updated_at']
+            );
+
+        return $fields;
+    }
 }
