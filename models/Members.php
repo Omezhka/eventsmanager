@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "members".
  *
- * @property integer $id_member
+ * @property integer $id
  * @property string $firstname_rus
  * @property string $firstname_eng
  * @property string $lastname_rus
@@ -24,7 +24,7 @@ class Members extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'members';
+        return 'users';
     }
 
     /**

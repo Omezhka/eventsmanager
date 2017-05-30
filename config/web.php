@@ -45,7 +45,12 @@ $config = [
             //'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'apievent'],  
+                ['class' => 'yii\rest\UrlRule', 
+                 'controller' => 'apievent', 
+                 'extraPatterns' => [
+                   //   'GET {id}/members' => 'members',
+                ]],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'apiuser'], 
             ],
         ],
         'request' => [

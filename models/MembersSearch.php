@@ -18,7 +18,7 @@ class MembersSearch extends Members
     public function rules()
     {
         return [
-            [['id_member'], 'integer'],
+            [['id'], 'integer'],
             [['firstname_rus', 'firstname_eng', 'lastname_rus', 'lastname_eng', 'country', 'city', 'company', 'mail'], 'safe'],
         ];
     }
@@ -59,7 +59,7 @@ class MembersSearch extends Members
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_member' => $this->id_member,
+            'id' => $this->id,
         ]);
 
         $query->andFilterWhere(['like', 'firstname_rus', $this->firstname_rus])

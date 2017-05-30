@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id_event_members
  * @property integer $id_event
- * @property integer $id_member
+ * @property integer $id
  * @property integer $id_type
  * @property integer $payment
  */
@@ -29,8 +29,8 @@ class EventMembers extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_event', 'id_member', 'id_type', 'payment'], 'required'],
-            [['id_event', 'id_member', 'id_type', 'payment'], 'integer'],
+            [['id_event', 'id', 'id_type', 'payment'], 'required'],
+            [['id_event', 'id', 'id_type', 'payment'], 'integer'],
         ];
     }
 

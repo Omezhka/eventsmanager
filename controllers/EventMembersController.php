@@ -21,9 +21,9 @@ use yii\filters\VerbFilter;
         ];
     }
 
-    public function actionDelete($id_event, $id_member)
+    public function actionDelete($id_event, $id)
     {
-        $this->findModel($id_event, $id_member)->delete();
+        $this->findModel($id_event, $id)->delete();
 
         return $this->redirect(['index']);
     }
