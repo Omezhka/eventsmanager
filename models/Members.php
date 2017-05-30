@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "members".
  *
  * @property integer $id
+ * @property string $username
  * @property string $firstname_rus
  * @property string $firstname_eng
  * @property string $lastname_rus
@@ -35,6 +36,7 @@ class Members extends \yii\db\ActiveRecord
         return [
             [['firstname_rus', 'firstname_eng', 'lastname_rus', 'lastname_eng', 'country', 'city', 'company', 'mail'], 'required'],
             [['firstname_rus', 'firstname_eng', 'lastname_rus', 'lastname_eng', 'country', 'city', 'company', 'mail'], 'string', 'max' => 255],
+            [['username', 'mail'], 'trim'],
         ];
     }
 
