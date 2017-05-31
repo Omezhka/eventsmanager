@@ -51,7 +51,7 @@ class Event extends \yii\db\ActiveRecord
 
     public function getMembers()
     {
-        return $this->hasMany(Members::className(), ['id' => 'id']) // 1 id - members, 2 id - event_members
+        return $this->hasMany(Members::className(), ['id' => 'id_member']) // 1 id - members, 2 id - event_members
             ->viaTable('event_members', ['id_event' => 'id_event']);
            // ->all(); // 1 id - event_members, 2 id - event
     }

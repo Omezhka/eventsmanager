@@ -10,9 +10,9 @@ class ApieventController extends ActiveController
     public $modelClass = 'app\models\Event';
 
     public function actionMembers($id) {
-           $event = $this->findModel($id);
-           $provider = new ActiveDataProvider(['query' => $event->getMembers()]);
-           return $provider;
+        $event = $this->findModel($id);
+        $provider = new ActiveDataProvider(['query' => $event->getMembers()]);
+        return $provider;
 
     }
 

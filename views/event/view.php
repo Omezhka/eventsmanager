@@ -31,7 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
 
     </p>
-
+<?php 
+    ?>
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id_event], [

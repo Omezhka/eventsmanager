@@ -48,7 +48,7 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 
                  'controller' => 'apievent', 
                  'extraPatterns' => [
-                   //   'GET {id}/members' => 'members',
+                     'GET members' => 'members',
                 ]],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'apiuser'], 
             ],
