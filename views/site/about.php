@@ -11,6 +11,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        здесь кароч какая-то инфа о нас или о чем-то еще
+ АЛО ГДЕ ИНФА
     </p>
 </div>
