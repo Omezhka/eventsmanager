@@ -37,7 +37,7 @@ AppAsset::register($this);
     ]);
     
     $menuItems = [
-        ['label' => 'Mои мероприятия','url' => ['/event/my']],
+        //['label' => 'Mои мероприятия','url' => ['/event/my']],
         ['label' => 'О нас', 'url' => ['/site/about']],
         ['label' => 'Контакты', 'url' => ['/site/contact']],
         
@@ -47,6 +47,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems[] = ['label' => 'Мои мероприятия', 'url' => ['/event/my']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
