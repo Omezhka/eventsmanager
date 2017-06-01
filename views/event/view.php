@@ -5,7 +5,7 @@ use yii\widgets\DetailView;
 use yii\grid\GridView;
 use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
-
+use app\models\EventMembers;
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
@@ -17,8 +17,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="event-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    
+    <p>
+    
+    <?= Html::a('Зарегистрироваться на мероприятиe', 
+        ['register', 'id' => $model->id_event], 
+        ['class' => 'btn btn-default']) 
+    ?>
 
-    <?= DetailView::widget([
+    </p>
+
+    <?=
+    DetailView::widget([
         'model' => $model,
         'attributes' => [
             'datetimestart_event',
@@ -26,22 +36,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'id_owner',
         ],
-    ]) ?>
-
-    <?php echo $model->id_owner?> 
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_event], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Вы уверены, что хотите удалить это мероприятие?',
-                'method' => 'post',
-            ],
-        ]) ?>
-
-    </p>
-
+    ]); ?>
+    
+        <p>
+                <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('Delete', ['delete', 'id' => $model->id_event], [
+                    'class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => 'Вы уверены, что хотите удалить это мероприятие?',
+                        'method' => 'post',
+                    ],
+                ]);
+                ?>
+            </p>
 </div>
 
 <div class = "event_members-view">

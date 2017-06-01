@@ -28,9 +28,11 @@ class EventMembers extends \yii\db\ActiveRecord
      */
     public function rules()
     {
+        // 'id_type'
+        //'payment'
         return [
-            [['id_event', 'id', 'id_type', 'payment'], 'required'],
-            [['id_event', 'id', 'id_type', 'payment'], 'integer'],
+            [['id_event', 'id_member'], 'required'],
+            [['id_event', 'id_member'], 'integer'],
         ];
     }
 
@@ -43,8 +45,8 @@ class EventMembers extends \yii\db\ActiveRecord
             'id_event' => 'ID мероприятия',
             'datetimestart_event' => 'Дата и время начала мероприятия',
             'datetimestop_event' => 'Дата и время окончания мероприятия',
-            'name' => 'Название мероприятия',
-            'payment' => 'Оплата',
+            // 'name' => 'Название мероприятия',
+            // 'payment' => 'Оплата',
         ];
     }
 }

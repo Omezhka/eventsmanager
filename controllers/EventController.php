@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
+use app\models\EventMembers;
 
 /**
  * EventController implements the CRUD actions for Event model.
@@ -30,11 +31,11 @@ class EventController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['create', 'my'],
+                'only' => ['create', 'my', 'register'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['create' , 'my'],
+                        'actions' => ['create' , 'my', 'register'],
                         'roles' => ['@'],
                     ],
                 ],
@@ -73,6 +74,19 @@ class EventController extends Controller
         ]);
     }
 
+    public function actionRegister($id)
+    {
+        $model = new Eventmembers();
+        $model->id_member = Yii::$app->user->identity->id;
+        $model->id_event = $id;
+        $model->save();
+        if ($model->save()) {
+            return $this->redirect(['view', 'id' => $model->id_event]);
+        } else {
+            //throw new NotFoundHttpException("can't save..");
+          print_r ($model->getErrors());
+        }
+    }
 
     /**
      * Displays a single Event model.
