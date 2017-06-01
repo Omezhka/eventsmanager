@@ -55,16 +55,4 @@ class Event extends \yii\db\ActiveRecord
             ->viaTable('event_members', ['id_event' => 'id_event']);
            // ->all(); // 1 id - event_members, 2 id - event
     }
-
-/*    public function behaviors()
-    {
-        return [
-            [
-                'class' => \app\components\behaviors\ManyHasManyBehavior::className(),
-                'relations' => [
-                    'event' => 'event_list',                   
-                ],
-            ],
-        ];  
-    }*/
 }

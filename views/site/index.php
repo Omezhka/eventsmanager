@@ -24,7 +24,7 @@ $this->title = 'My Yii Application';
 
     <div class="body-content">
 
-        <div class = "col-lg-12">
+        <div class="text-center">
                 <?php 
                 
             if (Yii::$app->user->isGuest) { ?>

@@ -28,11 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <p>
+    <?php echo $model->id_owner?> 
 
-    </p>
-<?php 
-    ?>
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id_event], [
@@ -42,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+
     </p>
 
 </div>
