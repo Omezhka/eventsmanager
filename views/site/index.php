@@ -44,9 +44,9 @@ $this->title = 'My Yii Application';
         </div>
             
         <div class = "col-lg-6">
-            <p class = "lead"> Или выберите мероприятие из </p> 
+            <p class = "lead"> Или выберите существующее </p> 
             
-            <p><a class = "btn btn-lg btn-success" href = "event/index"> существующих</a> </p>
+            <p><a class = "btn btn-lg btn-success" href = "event/index"> Список мероприятий</a> </p>
         
             <?php } ?>
         
