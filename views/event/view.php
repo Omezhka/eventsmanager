@@ -37,18 +37,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_owner',
         ],
     ]); ?>
-    
-        <p>
-                <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
-                <?= Html::a('Delete', ['delete', 'id' => $model->id_event], [
-                    'class' => 'btn btn-danger',
-                    'data' => [
-                        'confirm' => 'Вы уверены, что хотите удалить это мероприятие?',
-                        'method' => 'post',
-                    ],
-                ]);
-                ?>
-            </p>
+
+<p>
+    <?php if (Yii::$app->user->identity->id == $model->id_owner): ?>
+        <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id_event], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Вы уверены, что хотите удалить это мероприятие?',
+                'method' => 'post',
+            ],
+        ]);
+    ?>
+</p>
+ <?php endif; ?>
 </div>
 
 <div class = "event_members-view">

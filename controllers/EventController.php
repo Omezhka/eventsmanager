@@ -84,7 +84,7 @@ class EventController extends Controller
     ->one();
 //тут проверять 
     if ($eu) {
-        throw new NotFoundHttpException('already reg');
+        //throw new NotFoundHttpException('already reg');
     } /*else {
         
     }*/

@@ -22,6 +22,7 @@ class SignupForm extends Model
     public $country;
     public $city;
     public $company;
+    public $verifyCode;
  
     /**
      * @inheritdoc
@@ -32,12 +33,15 @@ class SignupForm extends Model
 
             ['username','trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Пользователь с таким логином уже зарегистрирован.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['password', 'trim'],
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            // verifyCode needs to be entered correctly
+            ['verifyCode', 'captcha'],
             
             ['firstname_rus','trim'],
             ['firstname_rus','required'],
@@ -74,13 +78,15 @@ class SignupForm extends Model
             ['mail', 'required'],
             ['mail', 'email'],
             ['mail', 'string', 'max' => 255],
-            ['mail', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
+            ['mail', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Пользователь с таким Е-mail уже зарегистрирован.'],
         ];
     }
 
     public function attributeLabels()
     {
         return [
+            'username' => 'Логин',
+            'password' => 'Пароль',
             'firstname_rus' => 'Имя (rus)',
             'firstname_eng' => 'Имя (eng)',
             'lastname_rus' => 'Фамилия (rus)',
@@ -89,6 +95,7 @@ class SignupForm extends Model
             'city' => 'Город',
             'company' => 'Компания',
             'mail' => 'E-mail',
+            'verifyCode' => 'Введите символы с картинки',
         ];
     }
  
