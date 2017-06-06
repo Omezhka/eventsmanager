@@ -16,15 +16,15 @@ use kartik\datetime\DateTimePicker;
 <?php 
 if ($model->datetimestart_event) 
 {
-    $model->datetimestart_event = date("yyyy-mm-dd hh:ii", $model->datetimestart_event);
+    $model->datetimestart_event = date($model->datetimestart_event);
 }    
     echo $form->field($model, 'datetimestart_event')->widget(DateTimePicker::className(),
     [
     'type' => DateTimePicker::TYPE_INPUT,
-    'value'=> date("yyyy-mm-dd hh:ii", $model->datetimestart_event),
+    'value'=> date("yyyy-mm-dd hh:ii:ss"),
         'pluginOptions' => 
         [
-            'format' => 'yyyy-mm-dd hh:ii',
+            'format' => 'yyyy-mm-dd hh:ii:ss',
             'autoclose'=>true,
             'weekStart'=>1, //неделя начинается с понедельника
             'startDate' => '01.05.2015 00:00', //самая ранняя возможная дата
@@ -36,17 +36,17 @@ if ($model->datetimestart_event)
 <?php 
 if ($model->datetimestop_event) 
 {
-    $model->datetimestop_event = date("yyyy-mm-dd hh:ii", $model->datetimestop_event);
-}    
+    $model->datetimestop_event = date($model->datetimestop_event);
+}  
     echo $form->field($model, 'datetimestop_event')->widget(DateTimePicker::className(),
     [
     'type' => DateTimePicker::TYPE_INPUT,
-    'value'=> date("yyyy-mm-dd hh:ii", $model->datetimestop_event),
+    'value'=> date($model->datetimestop_event),
         'pluginOptions' => 
         [
            // 2017-05-07 12:00:00
-            'convertFormat' => true,
-            'format' => 'yyyy-mm-dd hh:ii',
+            'convertFormat'=>true,
+            'format'=>'yyyy-mm-dd hh:ii:ss',
             'autoclose'=>true,
             'weekStart'=>1, //неделя начинается с понедельника
             'startDate' => '01.05.2017 00:00', //самая ранняя возможная дата
@@ -58,7 +58,7 @@ if ($model->datetimestop_event)
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Редактировать', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
