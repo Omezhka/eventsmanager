@@ -1,9 +1,13 @@
 <?php 
 namespace app\controllers;
- 
+
+use Yii; 
 use yii\rest\ActiveController;
 use app\models\Event;
 use yii\data\ActiveDataProvider;
+use yii\filters\auth\QueryParamAuth;
+use yii\filters\AccessControl;
+use yii\web\NotFoundHttpException;
  
 class ApieventController extends ActiveController
 {
@@ -14,14 +18,33 @@ class ApieventController extends ActiveController
         $provider = new ActiveDataProvider(['query' => $event->getMembers()]);
         return $provider;
     }
+//events.local/apievent/my?auth_key=xLht89u-lzRr234TDqIMOxwKJhHubY59
+    public function behaviors()
+    {   
+        $behaviors = parent::behaviors();
+        $behaviors['authenticator']['class'] = QueryParamAuth::className();
+        $behaviors['authenticator']['tokenParam'] = 'auth_key';
 
-    /*public function behaviors()
-    {
-        return [
-
-        ]
+        $behaviors['access']['class'] = AccessControl::className();
+        $behaviors['access']['only'] = [ 'my'];
+        $behaviors['access']['rules'] = [
+            [
+                'allow' => true,
+                'actions' => [ 'my'],
+                'roles' => ['@'],
+            ]
+        ];
+         return $behaviors;
     }
-*/
+
+    public function actionMy()
+    {
+        $events = Event::find()->where(['id_owner' => Yii::$app->user->identity->id]);
+        $dataProvider = new ActiveDataProvider(['query' => $events]);
+
+        return $dataProvider;
+    }
+
     /**
      * Finds the Event model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
