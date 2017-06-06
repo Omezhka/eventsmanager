@@ -101,6 +101,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
+                   
                     'logout' => ['post'],
                 ],
             ],
@@ -141,6 +142,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+    
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -153,6 +155,13 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function beforeAction($action)
+	{
+		$this->enableCsrfValidation = false;
+		
+		return parent :: beforeAction($action);
+	}
 
     /**
      * Logout action.

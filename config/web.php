@@ -52,8 +52,11 @@ $config = [
                  'extraPatterns' => [
                      'GET members' => 'members',
                 ]],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'apiuser'], 
-            ],
+                ['class' => 'yii\rest\UrlRule', 
+                 'controller' => 'apiuser',
+                 'extraPatterns' => [
+                     'POST loginuser' => 'loginuser',
+                ]]],
         ],
         'request' => [
             'parsers' => [

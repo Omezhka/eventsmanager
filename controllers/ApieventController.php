@@ -13,9 +13,15 @@ class ApieventController extends ActiveController
         $event = $this->findModel($id);
         $provider = new ActiveDataProvider(['query' => $event->getMembers()]);
         return $provider;
-
     }
 
+    /*public function behaviors()
+    {
+        return [
+
+        ]
+    }
+*/
     /**
      * Finds the Event model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

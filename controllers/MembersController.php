@@ -24,6 +24,7 @@ class MembersController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    
                 ],
             ],
         ];
