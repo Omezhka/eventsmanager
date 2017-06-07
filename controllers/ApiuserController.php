@@ -15,14 +15,12 @@ class ApiuserController extends ActiveController
 
         $user = User::findByUsername($request->post('username'));
         
-        if ($user and $user->validatePassword($request->post('password'))) {
-            echo '[{'.$user->auth_key.'}]';
-        } else {
-            echo '[{Incorrect login or password.}]';
-        }
-
+       if ($user and $user->validatePassword($request->post('password'))) {
+            echo '{"auth_key": "'.$user->auth_key.'"}';
+       } else {
+            echo '{"auth_key": "error"}';
+       }
     }
-
 }
 
 
