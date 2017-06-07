@@ -7,6 +7,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use app\models\EventMembers;
  
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -115,6 +116,17 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-   // id_event
- 
+    public static function userInEvent($id_event,$id_user)
+    {
+        $model = new EventMembers();
+        $eu = EventMembers::find()
+            ->where(['id_event' => $id_event, 'id_member' =>$id_user])
+            ->one();
+    //тут проверять 
+        if ($eu) {
+           return true;
+        } else {
+            return false;
+        }
+    }
 }

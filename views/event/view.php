@@ -6,6 +6,7 @@ use yii\grid\GridView;
 use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
 use app\models\EventMembers;
+use app\models\User;
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
@@ -20,10 +21,11 @@ $this->params['breadcrumbs'][] = $this->title;
     
     <p>
     
+    <?php if (!User::userInEvent($model->id_event, Yii::$app->user->identity->id)):?>
     <?= Html::a('Зарегистрироваться на мероприятиe', 
         ['register', 'id' => $model->id_event], 
-        ['class' => 'btn btn-default']) 
-    ?>
+        ['class' => 'btn btn-default']) ?>
+    <?php endif ?>
 
     </p>
 
@@ -39,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 
 <p>
-    <?php if (Yii::$app->user->identity->id == $model->id_owner): ?>
+    <?php if (Yii::$app->user->identity->id === $model->id_owner): ?>
         <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id_event], [
             'class' => 'btn btn-danger',
