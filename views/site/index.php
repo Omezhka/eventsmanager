@@ -13,7 +13,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
-$this->title = 'My Yii Application';
+$this->title = 'EventsManager';
 ?>
 <div class="site-index">
 
