@@ -76,19 +76,6 @@ class EventController extends Controller
 
     public function actionRegister($id)
     {
-//это убрать
-    $model = new EventMembers();
-//это вынести в отдельную функцию isuserinevent в User.php 
-    $eu = EventMembers::find()
-    ->where(['id_event' => $id, 'id_member' => Yii::$app->user->identity->id])
-    ->one();
-//тут проверять 
-    if ($eu) {
-        throw new NotFoundHttpException('already reg');
-    } /*else {
-        
-    }*/
-
         $model->id_member = Yii::$app->user->identity->id;
         $model->id_event = $id;
        // $model->id_type = 1;

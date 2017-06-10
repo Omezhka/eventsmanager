@@ -7,6 +7,8 @@ use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
 use app\models\EventMembers;
 use app\models\User;
+use app\models\Event;
+use app\models\Members;
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
@@ -35,9 +37,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'datetimestart_event',
             'datetimestop_event',
-            'name',
-            'members.firstname_rus',
             'id_owner',
+           'members.username',
+            /*'type.name',*/
             'id_type_event'
         ],
     ]); ?>

@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * TypeEventController implements the CRUD actions for TypeEvent model.
  */
-class TypeEventController extends Controller
+class TypeeventController extends Controller
 {
     /**
      * @inheritdoc
