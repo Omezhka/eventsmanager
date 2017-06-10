@@ -91,8 +91,8 @@ class EventController extends Controller
 
         $model->id_member = Yii::$app->user->identity->id;
         $model->id_event = $id;
-        $model->id_type = 1;
-        $model->payment = 0;
+       // $model->id_type = 1;
+       // $model->payment = 0;
         $model->save();
      
         if ($model->save()) {

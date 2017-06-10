@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     
     <p>
     
-    <?php if (!User::userInEvent($model->id_event, Yii::$app->user->identity->id)):?>
+    <?php if (!User::userInEvent($model->id_event, Yii::$app->user->identity->id) && (!Yii::$app->user->identity->id === $model->id_owner)):?>
     <?= Html::a('Зарегистрироваться на мероприятиe', 
         ['register', 'id' => $model->id_event], 
         ['class' => 'btn btn-default']) ?>
@@ -36,7 +36,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'datetimestart_event',
             'datetimestop_event',
             'name',
+            'members.firstname_rus',
             'id_owner',
+            'id_type_event'
         ],
     ]); ?>
 

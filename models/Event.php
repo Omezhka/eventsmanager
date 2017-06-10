@@ -29,8 +29,8 @@ class Event extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['datetimestart_event', 'datetimestop_event', 'name'], 'required'],
-            [['datetimestart_event', 'datetimestop_event'], 'safe'],
+            [['datetimestart_event', 'datetimestop_event', 'name','id_type_event'], 'required'],
+            [['datetimestart_event', 'datetimestop_event','id_type_event', 'name'], 'safe'],
             [['name'], 'string', 'max' => 500],
             [['event_list'], 'safe'],
         ];
@@ -46,6 +46,7 @@ class Event extends \yii\db\ActiveRecord
             'datetimestart_event' => 'Дата и время начала мероприятия',
             'datetimestop_event' => 'Дата и время окончания мероприятия',
             'name' => 'Название мероприятия',
+            'id_type_event' => 'Тип мероприятия'
         ];
     }
 
@@ -54,6 +55,12 @@ class Event extends \yii\db\ActiveRecord
         return $this->hasMany(Members::className(), ['id' => 'id_member']) // 1 id - members, 2 id - event_members
             ->viaTable('event_members', ['id_event' => 'id_event']);
            // ->all(); // 1 id - event_members, 2 id - event
+    }
+
+    public function getTypeEvent()
+    {
+        return $this->hasMany(TypeEvent::className(), ['id' => 'id_type_event']) // 1 id - type_event, 2 id - event
+            ->viaTable('event_members', ['id_type_event' => 'id']); // 1 id - event, 2 id - type_event
     }
 
 }
