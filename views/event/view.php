@@ -38,9 +38,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'datetimestart_event',
             'datetimestop_event',
             'id_owner',
-           'members.username',
-            /*'type.name',*/
-            'id_type_event'
+           'owner.username',
+            'type.name'
         ],
     ]); ?>
 

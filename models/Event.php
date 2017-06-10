@@ -52,15 +52,19 @@ class Event extends \yii\db\ActiveRecord
 
     public function getMembers()
     {
-        return $this->hasOne(Members::className(), ['id' => 'id_member']) // 1 id - members, 2 id - event_members
+        return $this->hasMany(Members::className(), ['id' => 'id_member']) // 1 id - members, 2 id - event_members
             ->viaTable('event_members', ['id_event' => 'id_event']);
             // 1 id - event_members, 2 id - event
     }
 
+    public function getOwner()
+    {
+        return $this->hasOne(Members::className(),['id' => 'id_owner']);
+    }
+
     public function getType()
     {
-        return $this->hasOne(TypeEvent::className(), ['id' => 'id_type_event']) // 1 id - type_event, 2 id - event
-            ->viaTable('type_event', ['id_type_event' => 'id']); // 1 id - event, 2 id - type_event
+        return $this->hasOne(TypeEvent::className(), ['id' => 'id_type_event']); // 1 id - type_event, 2 id - event
     }
 
 }
