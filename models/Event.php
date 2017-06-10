@@ -67,4 +67,16 @@ class Event extends \yii\db\ActiveRecord
         return $this->hasOne(TypeEvent::className(), ['id' => 'id_type_event']); // 1 id - type_event, 2 id - event
     }
 
+    public function isPaymentEvent($id_event)
+    {
+        $model = new Event();
+        $pay = Event::find()
+        ->where(['id_event'=>$id_event])
+        ->one();
+        if ($model->payment == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ListView;
+use app\models\Event;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EventSearch */
@@ -10,6 +11,7 @@ use yii\widgets\ListView;
 $this->title = 'Мероприятия';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="event-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -17,9 +19,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],
         'itemView' => '_event',
-    ]) ?>
+    ]) 
+    ?>
+
 </div>

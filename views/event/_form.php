@@ -15,7 +15,6 @@ use yii\bootstrap\Collapse;
 <div class="event-form">
 
     <?php $form = ActiveForm::begin(); ?>    
-
         <?= $form->field($model, 'id_type_event')
             ->dropDownList(ArrayHelper::map(
                 TypeEvent::find()->andWhere('id>0')->all(), 'id', 'name'

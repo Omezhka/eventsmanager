@@ -9,6 +9,7 @@ use app\models\EventMembers;
 use app\models\User;
 use app\models\Event;
 use app\models\Members;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
@@ -38,11 +39,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'datetimestart_event',
             'datetimestop_event',
             'id_owner',
-           'owner.username',
+           'owner.username' => [
+               'attribute' => $model->id_owner,
+               'format' => 'raw',
+               'value' => Html::a(Event::getOwner(),
+                   Url::to('/members/view?id='.Yii::$app->user->identity->id)
+            )
+           ],
             'type.name'
         ],
     ]); ?>
-
 <p>
     <?php if (Yii::$app->user->identity->id === $model->id_owner): ?>
         <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>

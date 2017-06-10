@@ -48,10 +48,9 @@ class EventController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
+    {   
         $searchModel = new EventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -67,6 +66,8 @@ class EventController extends Controller
         $searchModel = new EventSearch();
         $events = Event::find()->where(['id_owner' => Yii::$app->user->identity->id]);
         $dataProvider = new ActiveDataProvider(['query' => $events]);
+
+
 
         return $this->render('index', [
             'searchModel' => $searchModel,
