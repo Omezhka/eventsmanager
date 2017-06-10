@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
            'owner.username' => [
                'attribute' => $model->id_owner,
                'format' => 'raw',
-               'value' => Html::a(Event::getOwner(),
+               'value' => Html::a('как-то вывести тут логин',
                    Url::to('/members/view?id='.Yii::$app->user->identity->id)
             )
            ],
