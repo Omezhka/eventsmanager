@@ -46,7 +46,8 @@ class Event extends \yii\db\ActiveRecord
             'datetimestart_event' => 'Дата и время начала мероприятия',
             'datetimestop_event' => 'Дата и время окончания мероприятия',
             'name' => 'Название мероприятия',
-            'members.username' => 'Создатель мероприятия' 
+            'owner.username' => 'Создатель мероприятия',
+            'type.name' => 'Размер мероприятия'
         ];
     }
 

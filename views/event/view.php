@@ -39,9 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'datetimestart_event',
             'datetimestop_event',
-            'id_owner',
-           'owner.username' => [
-               'attribute' => $model->id_owner,
+               'owner.username' => [
+               'attribute' => 'owner.username',
                'format' => 'raw',
                'value' => Html::a($model->owner->username,
                    Url::to('/members/view?id='.$model->id_owner)
