@@ -42,12 +42,13 @@ class Event extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id_type_event' => 'Тип',
             'id_event' => 'ID мероприятия',
-            'datetimestart_event' => 'Дата и время начала мероприятия',
-            'datetimestop_event' => 'Дата и время окончания мероприятия',
-            'name' => 'Название мероприятия',
-            'owner.username' => 'Создатель мероприятия',
-            'type.name' => 'Размер мероприятия'
+            'datetimestart_event' => 'Дата и время начала',
+            'datetimestop_event' => 'Дата и время окончания',
+            'name' => 'Название',
+            'owner.username' => 'Создатель',
+            'type.name' => 'Размер'
         ];
     }
 

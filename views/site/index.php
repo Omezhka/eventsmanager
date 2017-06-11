@@ -18,38 +18,35 @@ $this->title = 'EventsManager';
 <div class="site-index">
 
     <div class="jumbotron">
-            <h1>Что-то мотивирующее пользоваться нашим сервисом!</h1>
-        
+            <h1>Мы есть, потому что нужны вам.</h1>
     </div>
-
+    <br>
+    <br>
     <div class="body-content">
 
         <div class="text-center">
-                <?php 
-                
-            if (Yii::$app->user->isGuest) { ?>
-            
-                    <p class=lead>Для начала авторизуйтесь</p>
+            <?php 
+                if (Yii::$app->user->isGuest) { ?>
+                <p class=lead>Для начала пользования сервисом авторизуйтесь или зарегистрируйтесь</p>
+                <div class="col-md-3 col-md-offset-3"> 
                     <p><a class="btn btn-lg btn-success" href="site/login">Авторизация</a></p>
+                </div>
+
+                <div class="col-md-3"> 
+                    <p><a class="btn btn-lg btn-success" href="site/signup">Регистрация</a></p>
+                </div>
                 
-        </div>
-            
             <?php } else { ?>
 
-        <div class = "col-lg-6">
-            
-            <p class="lead">Создайте своё мероприятие!</p> 
-            <p><a class="btn btn-lg btn-success" href="event/create">Создать</a></p>
-    
-        </div>
-            
-        <div class = "col-lg-6">
-            <p class = "lead"> Или выберите существующее </p> 
-            
-            <p><a class = "btn btn-lg btn-success" href = "event/index"> Список мероприятий</a> </p>
-        
+                <p class="lead">Создайте своё мероприятие или выберите существующее из списка</p> 
+                <div class = "col-md-3 col-md-offset-3">        
+                    <p><a class="btn btn-lg btn-success" href="event/create">Создать</a></p>
+                </div>    
+                <div class = "col-md-3">         
+                    <p><a class = "btn btn-lg btn-success" href = "event/index"> Список мероприятий</a> </p>
+                </div> 
+
             <?php } ?>
-        
         </div>
     </div>
 </div>
