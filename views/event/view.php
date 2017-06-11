@@ -10,6 +10,7 @@ use app\models\User;
 use app\models\Event;
 use app\models\Members;
 use yii\helpers\Url;
+use yii\db\Query;
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
@@ -42,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
            'owner.username' => [
                'attribute' => $model->id_owner,
                'format' => 'raw',
-               'value' => Html::a('как-то вывести тут логин',
+               'value' => Html::a($model->owner->username,
                    Url::to('/members/view?id='.$model->id_owner)
             )
            ],
