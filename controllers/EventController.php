@@ -77,6 +77,9 @@ class EventController extends Controller
 
     public function actionRegister($id)
     {
+        $model = new EventMembers();
+        /*$model->id_member = 1;
+        $model->id_event = 1;*/
         $model->id_member = Yii::$app->user->identity->id;
         $model->id_event = $id;
        // $model->id_type = 1;
