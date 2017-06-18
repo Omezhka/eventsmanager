@@ -1,9 +1,9 @@
 <?php 
-namespace app\controllers;
+namespace app\controllers\api;
  
 use yii\rest\ActiveController;
  
-class ApieventmembersController extends ActiveController
+class EventmembersController extends ActiveController
 {
     public $modelClass = 'app\models\EventMembers';
 }

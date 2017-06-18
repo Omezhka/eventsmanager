@@ -49,13 +49,13 @@ $config = [
             
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 
-                 'controller' => 'apievent', 
+                 'controller' => 'api/event', 
                  'extraPatterns' => [
                      'GET members' => 'members',
                 ]],
 
                 ['class' => 'yii\rest\UrlRule', 
-                 'controller' => 'apiuser',
+                 'controller' => 'api/user',
                  'extraPatterns' => [
                      'POST loginuser' => 'loginuser',
                 ]],

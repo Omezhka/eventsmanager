@@ -1,11 +1,11 @@
 <?php 
-namespace app\controllers;
+namespace app\controllers\api;
 
 use Yii; 
 use yii\rest\ActiveController;
 use app\models\User;
  
-class ApiuserController extends ActiveController
+class UserController extends ActiveController
 {
     public $modelClass = 'app\models\Members';
 

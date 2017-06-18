@@ -1,5 +1,5 @@
 <?php 
-namespace app\controllers;
+namespace app\controllers\api;
 
 use Yii; 
 use yii\rest\ActiveController;
@@ -9,7 +9,7 @@ use yii\filters\auth\QueryParamAuth;
 use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
  
-class ApieventController extends ActiveController
+class EventController extends ActiveController
 {
     public $modelClass = 'app\models\Event';
 
