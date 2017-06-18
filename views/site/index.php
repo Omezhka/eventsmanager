@@ -28,14 +28,14 @@ EventsManager - сервис, с которым легко.-->
     <div class="body-content">
         <div class="text-center">
             <h2>Преимущества</h2>
-        <div class = "col-xs-6 col-md-4">
+        <div class = "col-md-4">
             Это просто
         </div>
-         <div class = "col-xs-6 col-md-4">
+         <div class = "col-md-4">
             Это быстро
         </div>
 
-         <div class = "col-xs-6 col-md-4">
+         <div class = "col-md-4">
             Печать бейджей при помощи программы
         </div>
             <?php 
