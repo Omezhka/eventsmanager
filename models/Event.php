@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "event".
  *
- * @property integer $id_event
+ * @property integer $id
  * @property string $datetimestart_event
  * @property string $datetimestop_event
  * @property string $name
@@ -43,7 +43,7 @@ class Event extends \yii\db\ActiveRecord
     {
         return [
             'id_type_event' => 'Тип',
-            'id_event' => 'ID мероприятия',
+            'id' => 'ID мероприятия',
             'datetimestart_event' => 'Дата и время начала',
             'datetimestop_event' => 'Дата и время окончания',
             'name' => 'Название',
@@ -55,7 +55,7 @@ class Event extends \yii\db\ActiveRecord
     public function getMembers()
     {
         return $this->hasMany(Members::className(), ['id' => 'id_member']) // 1 id - members, 2 id - event_members
-            ->viaTable('event_members', ['id_event' => 'id_event']);
+            ->viaTable('event_members', ['id_event' => 'id']);
             // 1 id - event_members, 2 id - event
     }
 
@@ -69,11 +69,11 @@ class Event extends \yii\db\ActiveRecord
         return $this->hasOne(TypeEvent::className(), ['id' => 'id_type_event']); // 1 id - type_event, 2 id - event
     }
 
-    public function isPaymentEvent($id_event)
+    public function isPaymentEvent($id)
     {
         $model = new Event();
         $pay = Event::find()
-        ->where(['id_event'=>$id_event])
+        ->where(['id'=>$id])
         ->one();
         if ($model->payment == 1) {
             return true;

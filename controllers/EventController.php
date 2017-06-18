@@ -78,8 +78,6 @@ class EventController extends Controller
     public function actionRegister($id)
     {
         $model = new EventMembers();
-        /*$model->id_member = 1;
-        $model->id_event = 1;*/
         $model->id_member = Yii::$app->user->identity->id;
         $model->id_event = $id;
        // $model->id_type = 1;
@@ -118,7 +116,7 @@ class EventController extends Controller
         $model = new Event();
         $model->id_owner = Yii::$app->user->identity->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_event]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -139,7 +137,7 @@ class EventController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_event]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

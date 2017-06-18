@@ -18,7 +18,7 @@ class EventSearch extends Event
     public function rules()
     {
         return [
-            [['id_event'], 'integer'],
+            [['id'], 'integer'],
             [['datetimestart_event', 'datetimestop_event',  'name'], 'safe'],
         ];
     }
@@ -59,7 +59,7 @@ class EventSearch extends Event
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_event' => $this->id_event,
+            'id' => $this->id,
             'datetimestart_event' => $this->datetimestart_event,
             'datetimestop_event' => $this->datetimestop_event,
         ]);

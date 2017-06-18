@@ -11,6 +11,7 @@ use app\models\Event;
 use app\models\Members;
 use yii\helpers\Url;
 use yii\db\Query;
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Event */
 
@@ -25,9 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
     
     <p>
     
-    <?php if (!User::userInEvent($model->id_event, Yii::$app->user->identity->id) /*&& (!Yii::$app->user->identity->id === $model->id_owner)*/):?>
-    <?= Html::a('Зарегистрироваться на мероприятиe', 
-        ['register', 'id' => $model->id_event], 
+    <?php if (!User::userInEvent($model->id, Yii::$app->user->identity->id) /*&& (!Yii::$app->user->identity->id === $model->id_owner)*/):?>
+    <?= Html::a(Html::encode('Зарегистрироваться на мероприятиe'), 
+        ['register', 'id' => $model->id], 
         ['class' => 'btn btn-default']) ?>
     <?php endif ?>
 
@@ -42,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                'owner.username' => [
                'attribute' => 'owner.username',
                'format' => 'raw',
-               'value' => Html::a($model->owner->username,
+               'value' => Html::a(Html::encode($model->owner->username),
                    Url::to('/members/view?id='.$model->id_owner)
             )
            ],
@@ -51,8 +52,8 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 <p>
     <?php if (Yii::$app->user->identity->id === $model->id_owner): ?>
-        <?= Html::a('Update', ['update', 'id' => $model->id_event], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_event], [
+        <?= Html::a(Html::encode('Редактировать'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Html::encode('Удалить'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Вы уверены, что хотите удалить это мероприятие?',

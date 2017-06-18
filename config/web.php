@@ -46,17 +46,28 @@ $config = [
             'enablePrettyUrl' => true,
             //'enableStrictParsing' => true,
             'showScriptName' => false,
+            
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 
                  'controller' => 'apievent', 
                  'extraPatterns' => [
                      'GET members' => 'members',
                 ]],
+
                 ['class' => 'yii\rest\UrlRule', 
                  'controller' => 'apiuser',
                  'extraPatterns' => [
                      'POST loginuser' => 'loginuser',
-                ]]],
+                ]],
+
+                ['class' => 'yii\rest\UrlRule', 
+                 'controller' => 'event',
+                ],
+
+                ['class' => 'yii\rest\UrlRule', 
+                 'controller' => 'members',
+                ],
+            ],
         ],
         'request' => [
             'parsers' => [

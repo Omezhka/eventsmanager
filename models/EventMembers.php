@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "event_members".
  *
- * @property integer $id_event_members
+ * @property integer $id
  * @property integer $id_event
  * @property integer $id
  * @property integer $id_type
