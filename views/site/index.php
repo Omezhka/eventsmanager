@@ -21,7 +21,7 @@ $this->title = 'EventsManager';
     <div class="body-content">
         <div class="text-center">
         <div class = "container">
-        <h1>  EventsManager - это сервис регистрации и управления списком участников.</h1>
+        <h1>  EventsManager - это сервис регистрации и управления мероприятиями.</h1>
         <?php
             if (Yii::$app->user->isGuest) { ?>
                 <p class="lead">Для начала пользоваия сервисом зарегистрируйтесь или авторизуйтесь</p> 
@@ -56,7 +56,6 @@ $this->title = 'EventsManager';
             <div class="container">
                 <div class="row text-center">
                     <div class="col-lg-10 col-lg-offset-1">
-                        <h2>Преимущества</h2>
                         <hr class="small">
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
@@ -67,7 +66,7 @@ $this->title = 'EventsManager';
                                         <strong>Просто</strong>
                                     </h4>
                                    
-                                    <p>Интуитивно понятный интерфейс не доставит проблем </p>
+                                    <p>Интуитивно понятный интерфейс и только необходимые функции не заставят блуждать в поисках нужной страницы </p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
@@ -77,9 +76,9 @@ $this->title = 'EventsManager';
                                     <i class="fa fa-compass fa-stack-1x text-primary"></i>
                                 </span>
                                     <h4>
-                                        <strong>Печать бейджей</strong>
+                                        <strong>Удобно</strong>
                                     </h4>
-                                    <p>С помощью Desktop программы можно печатать бейджи </p>
+                                    <p>С помощью Desktop программы можно печатать бейджи сразу после установки и авторизации </p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
