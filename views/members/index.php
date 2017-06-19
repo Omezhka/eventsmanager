@@ -8,7 +8,6 @@ use app\models\Members;
 /* @var $searchModel app\models\MembersSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-/*if (Members::userAdmin(Yii::$app->user->identity->id)):*/
 $this->title = 'Members';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,6 +27,7 @@ if (Members::userAdmin(Yii::$app->user->identity->id)): ?>
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+            'username',
             'firstname_rus',
             'firstname_eng',
             'lastname_rus',

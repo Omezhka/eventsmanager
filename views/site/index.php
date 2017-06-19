@@ -22,8 +22,8 @@ $this->title = 'EventsManager';
         <div class="text-center">
         <div class = "container">
         <h1>  EventsManager - это сервис регистрации и управления списком участников.</h1>
-        <?php 
-                if (Yii::$app->user->isGuest) { ?>
+        <?php
+            if (Yii::$app->user->isGuest) { ?>
                 <p class="lead">Для начала пользоваия сервисом зарегистрируйтесь или авторизуйтесь</p> 
                 <div class = "col-md-3 col-md-offset-3">        
                     <p><a class="btn btn-lg btn-success" href="site/login">Авторизация</a></p>
@@ -31,7 +31,8 @@ $this->title = 'EventsManager';
                 <div class = "col-md-3">         
                     <p><a class = "btn btn-lg btn-success" href = "site/signup">Регистрация</a> </p>
                 </div> 
-            <?php } else { ?>
+
+            <?php } elseif (!Members::userAdmin(Yii::$app->user->identity->id)) { ?>
 
                 <p class="lead">Создайте своё мероприятие или выберите существующее из списка</p> 
                 <div class = "col-md-3 col-md-offset-3">        
@@ -41,7 +42,17 @@ $this->title = 'EventsManager';
                     <p><a class = "btn btn-lg btn-success" href = "event/index"> Список мероприятий</a> </p>
                 </div> 
 
+            <?php } else { ?>
+            
+                <div class = "col-md-3 col-md-offset-3">       
+                    <p><a class="btn btn-lg btn-success" href="members/index">Участники</a></p>
+                </div>    
+                <div class = "col-md-3 col-md-offset-3">       
+                    <p><a class="btn btn-lg btn-success" href="event/index">Мероприятия</a></p>
+                </div>
+                
             <?php } ?>
+
             <div class="container">
                 <div class="row text-center">
                     <div class="col-lg-10 col-lg-offset-1">

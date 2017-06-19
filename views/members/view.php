@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
+                'username',
                 'firstname_rus',
                 'firstname_eng',
                 'lastname_rus',
@@ -30,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'company',
                 'mail',
             ],
-        ]) ?>
+        ]); ?>
     <?php else:?>
         <?= DetailView::widget([
                 'model' => $model,
@@ -49,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p> <?php if (Members::userAdmin(Yii::$app->user->identity->id) || $model->id == Yii::$app->user->identity->id): ?>
         <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?php if (Members::userAdmin(Yii::$app->user->identity->id)):?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -56,6 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?php endif;?>
         <?php endif;?>
     </p>
 
