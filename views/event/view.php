@@ -72,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
     [
         'query' => $model->getMembers(), 
         'pagination' => [
-            'pageSize' => 20
+            'pageSize' => 12
         ],
     ]); ?>
 
