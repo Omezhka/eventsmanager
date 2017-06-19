@@ -68,7 +68,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class = "event_members-view">
 <h2>Список участников на мероприятии</h2>
 
-<?php $provider = new ActiveDataProvider(['query' => $model->getMembers()]); ?>
+<?php $provider = new ActiveDataProvider(
+    [
+        'query' => $model->getMembers(), 
+        'pagination' => [
+            'pageSize' => 20
+        ],
+    ]); ?>
 
 <?= ListView::widget([
         'dataProvider' => $provider,
