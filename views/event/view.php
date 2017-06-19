@@ -71,9 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php $provider = new ActiveDataProvider(
     [
         'query' => $model->getMembers(), 
-        'pagination' => [
-            'pageSize' => 12
-        ],
+       
     ]); ?>
 
 <?= ListView::widget([

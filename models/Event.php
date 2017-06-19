@@ -31,6 +31,7 @@ class Event extends \yii\db\ActiveRecord
         return [
             [['datetimestart_event', 'datetimestop_event', 'name','id_type_event'], 'required'],
             [['datetimestart_event', 'datetimestop_event','id_type_event', 'name'], 'safe'],
+            [['datetimestart_event', 'datetimestop_event'], 'datetime'],
             [['name'], 'string', 'max' => 500],
             [['event_list'], 'safe'],
         ];
