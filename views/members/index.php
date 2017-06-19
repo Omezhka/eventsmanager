@@ -2,14 +2,19 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Members;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\MembersSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+/*if (Members::userAdmin(Yii::$app->user->identity->id)):*/
 $this->title = 'Members';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<?php 
+if (Members::userAdmin(Yii::$app->user->identity->id)): ?>
 <div class="members-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -36,3 +41,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 </div>
+<?php else: ?>
+У Вас нет доступа к этой странице. 
+<?php endif; ?>

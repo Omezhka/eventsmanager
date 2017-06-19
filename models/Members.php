@@ -75,4 +75,16 @@ class Members extends \yii\db\ActiveRecord
         return $fields;
     }
 
+    public static function userAdmin($id_user)
+        {
+            $eu = Members::find()
+                ->where(['id' => $id_user, 'admin' => 1])
+                ->one();
+        //тут проверять 
+            if ($eu) {
+            return true;
+            } else {
+                return false;
+            }
+        }
 }

@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 <p>
-    <?php if (Yii::$app->user->identity->id === $model->id_owner): ?>
+    <?php if (Members::userAdmin(Yii::$app->user->identity->id) || Yii::$app->user->identity->id === $model->id_owner): ?>
         <?= Html::a(Html::encode('Редактировать'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Html::encode('Удалить'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',

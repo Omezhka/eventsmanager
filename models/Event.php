@@ -81,4 +81,6 @@ class Event extends \yii\db\ActiveRecord
             return false;
         }
     }
+
+    
 }

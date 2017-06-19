@@ -2,41 +2,61 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use app\models\Members;
 /* @var $this yii\web\View */
 /* @var $model app\models\Members */
 
 $this->title = $model->firstname_rus . ' ' . $model->lastname_rus;
-$this->params['breadcrumbs'][] = ['label' => 'Members', 'url' => ['index']];
+if (Members::userAdmin(Yii::$app->user->identity->id)){
+    $this->params['breadcrumbs'][] = ['label' => 'Все пользователи', 'url' => ['index']];
+}
+
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="members-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'firstname_rus',
-            'firstname_eng',
-            'lastname_rus',
-            'lastname_eng',
-            'country',
-            'city',
-            'company',
-            'mail',
-        ],
-    ]) ?>
+    <?php if (Members::userAdmin(Yii::$app->user->identity->id) || $model->id == Yii::$app->user->identity->id): ?>
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'firstname_rus',
+                'firstname_eng',
+                'lastname_rus',
+                'lastname_eng',
+                'country',
+                'city',
+                'company',
+                'mail',
+            ],
+        ]) ?>
+    <?php else:?>
+        <?= DetailView::widget([
+                'model' => $model,
+                'attributes' => [
+                    'firstname_rus',
+                    'firstname_eng',
+                    'lastname_rus',
+                    'lastname_eng',
+                    'country',
+                    'city',
+                ],
+            ])
+        ?>
+    <?php endif;?>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+
+    <p> <?php if (Members::userAdmin(Yii::$app->user->identity->id) || $model->id == Yii::$app->user->identity->id): ?>
+        <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены, что хотите удалить?',
                 'method' => 'post',
             ],
         ]) ?>
+        <?php endif;?>
     </p>
 
 </div>
