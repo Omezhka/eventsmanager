@@ -31,11 +31,11 @@ class EventController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['create', 'my', 'register'],
+                'only' => ['create', 'my', 'register','index','view'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['create' , 'my', 'register'],
+                        'actions' => ['create' , 'my', 'register','index','view'],
                         'roles' => ['@'],
                     ],
                 ],

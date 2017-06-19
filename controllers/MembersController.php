@@ -8,7 +8,8 @@ use app\models\MembersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\auth\QueryParamAuth;
+use yii\filters\AccessControl;
 /**
  * MembersController implements the CRUD actions for Members model.
  */
@@ -19,14 +20,25 @@ class MembersController extends Controller
      */
     public function behaviors()
     {
+
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
-                    
                 ],
             ],
+                'access' => [
+                    'class' => AccessControl::className(),
+                    'only' => [ 'index', 'view', 'create', 'update'],
+                    'rules' => [
+                        [
+                            'allow' => true,
+                            'actions' => [ 'index', 'view', 'create', 'update'],
+                            'roles' => ['@'],
+                        ]
+                    ]
+                ],                
         ];
     }
 
