@@ -18,45 +18,6 @@ use yii\widgets\DetailView;
 $this->title = 'EventsManager';
 ?>
 <div class="site-index">
-<!--Мы есть, потому что нужны вам.
-EventsManager - сервис, с которым легко.-->
-    <!--<div class="container">
-        <div class="row text-center">
-            <h1> EventsManager - это сервис регистрации и управления списком участников. </h1>
-                <div class="col-lg-10 col-lg-offset-1">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-item">                                  
-                                <p>Надоело делать одно и то же организовывая разные мероприятия?</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
-                            </span>
-                                <p>Неудобно регистрировать участников в разных таблицах, а потом собирать воедино? </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                            </span>
-                                <i class="fa fa-bolt" aria-hidden="true"></i>
-                                <p>Регистрация участника непосредственно на мероприятии становится проблемой?</p>
-                            </div>
-                        </div>
-                    </div>
-                    /.row (nested) -->
-                <!--</div> -->
-                <!-- /.col-lg-10 -->
-       <!-- </div>-->
-                <!-- /.row -->
-    <!--</div>-->
-        <!-- /.container -->
     <div class="body-content">
         <div class="text-center">
         <div class = "container">
