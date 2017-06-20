@@ -60,35 +60,19 @@ $this->title = 'EventsManager';
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="service-item">
-                                   
-                                </span>
-                                    <h4>
-                                        <strong>Просто</strong>
-                                    </h4>
-                                   
-                                    <p>Интуитивно понятный интерфейс и только необходимые функции не заставят блуждать в поисках нужной страницы </p>
+                                   <span class="glyphicon glyphicon-ok"></span>                                  
+                                    <p>Простой интерфейс и только необходимые функции не заставят блуждать в поисках нужной страницы </p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="service-item">
-                                    <span class="glyphicon glyphicon-thumbs-up">
-                                </span>
-                                    <h4>
-                                        <strong>Удобно</strong>
-                                    </h4>
+                                    <span class="glyphicon glyphicon-print"></span>
                                     <p>С помощью Desktop программы можно печатать бейджи сразу после установки и авторизации </p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="service-item">
-                                    <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                                </span>
-                                    <h4>
-                                        <strong>Быстро</strong>
-                                    </h4>
-                                    <i class="fa fa-bolt" aria-hidden="true"></i>
+                                    <span class="glyphicon glyphicon-flash"></span>
                                     <p>Зарегистрироваться и создать мероприятие либо присоединиться к существующему за пару кликов</p>
                                 </div>
                             </div>
