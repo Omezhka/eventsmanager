@@ -30,8 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Html::a(Html::encode('Зарегистрироваться на мероприятиe'), 
         ['register', 'id' => $model->id], 
         ['class' => 'btn btn-default']) ?>
-    <?php endif ?>
-
+    <?php else: ?>
+    <div class="alert alert-success"> Вы зарегистрированы на это мероприятиe.</div>
+<?php endif;?>
     </p>
 
     <?=
@@ -50,6 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'type.name'
         ],
     ]); ?>
+
 <p>
     <?php if (Members::userAdmin(Yii::$app->user->identity->id) || Yii::$app->user->identity->id === $model->id_owner): ?>
         <?= Html::a(Html::encode('Редактировать'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
