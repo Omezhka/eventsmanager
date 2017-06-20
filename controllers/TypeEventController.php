@@ -8,7 +8,7 @@ use app\models\TypeEventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
 /**
  * TypeEventController implements the CRUD actions for TypeEvent model.
  */
@@ -26,6 +26,18 @@ class TypeeventController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+
+            'access' => [
+                    'class' => AccessControl::className(),
+                    'only' => [ 'index', 'view', 'create', 'update'],
+                    'rules' => [
+                        [
+                            'allow' => true,
+                            'actions' => [ 'index', 'view', 'create', 'update'],
+                            'roles' => ['@'],
+                        ]
+                    ]
+                ],     
         ];
     }
 

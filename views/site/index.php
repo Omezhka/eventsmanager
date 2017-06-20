@@ -44,12 +44,17 @@ $this->title = 'EventsManager';
 
             <?php } else { ?>
             
-                <div class = "col-md-3 col-md-offset-3">       
+            <div class="btn-group btn-group-justified">
+                  <div class="btn-group">
                     <p><a class="btn btn-lg btn-success" href="members/index">Участники</a></p>
                 </div>    
-                <div class = "col-md-3 col-md-offset-3">       
+                <div class="btn-group">       
                     <p><a class="btn btn-lg btn-success" href="event/index">Мероприятия</a></p>
                 </div>
+                <div class="btn-group">     
+                    <p><a class="btn btn-lg btn-success" href="typeevent/index">Типы мероприятий</a></p>
+                </div>
+            </div>
                 
             <?php } ?>
 

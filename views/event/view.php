@@ -83,6 +83,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'itemView' => '../members/_members',
         'viewParams' => [
             'eventId' => $model->id,
+            'ownerId' => $model->id_owner,
         ]
     ]); 
  ?>
