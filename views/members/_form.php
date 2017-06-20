@@ -33,7 +33,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-         <?= Html::submitButton('Регистрация', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
