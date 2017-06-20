@@ -52,6 +52,7 @@ $config = [
                  'controller' => 'api/event', 
                  'extraPatterns' => [
                      'GET members' => 'members',
+                     'GET remove' => 'remove',
                 ]],
 
                 ['class' => 'yii\rest\UrlRule', 

@@ -84,9 +84,6 @@ class EventController extends Controller
         $evmem->delete();
 
         return $this->redirect(['view', 'id' => $id]);
-
-
-        
     }
 
     public function actionRegister($id)

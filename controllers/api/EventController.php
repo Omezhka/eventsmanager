@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\filters\auth\QueryParamAuth;
 use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
+use app\models\EventMembers;
  
 class EventController extends ActiveController
 {
@@ -26,11 +27,11 @@ class EventController extends ActiveController
         $behaviors['authenticator']['tokenParam'] = 'auth_key';
 
         $behaviors['access']['class'] = AccessControl::className();
-        $behaviors['access']['only'] = [ 'my'];
+        $behaviors['access']['only'] = [ 'my, remove'];
         $behaviors['access']['rules'] = [
             [
                 'allow' => true,
-                'actions' => [ 'my'],
+                'actions' => [ 'my, remove'],
                 'roles' => ['@'],
             ]
         ];
@@ -43,6 +44,22 @@ class EventController extends ActiveController
         $dataProvider = new ActiveDataProvider(['query' => $events]);
 
         return $dataProvider;
+    }
+
+    public function actionRemove($id)
+    {
+       
+        $request = Yii::$app->request;  
+        $user_id = $request->get('user_id');
+        $evmem = EventMembers::find()
+        ->where(['id_member' => $user_id, 'id_event' => $id])
+        ->one();
+        
+        if ($evmem->delete()) {
+            echo '{"OK"}';
+       } else {
+            echo '{"error"}';
+       }
     }
 
     /**
