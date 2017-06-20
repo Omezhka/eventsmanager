@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]);
     ?> 
    <p> Для установки Desktop приложения перейдите по ссылке 
-   <a href="http://dropmefiles.com/U7T3i"> EventsManager.Badges </a> </p> 
+   <a href="http://dropmefiles.com/EaLqi"> EventsManager.Badges </a> </p> 
 </p>
  <?php endif; ?>
 </div>
