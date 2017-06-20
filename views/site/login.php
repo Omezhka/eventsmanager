@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::submitButton('Войти', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
         </div>
-        <div style="color:#999;margin:1em 0">
+        <div>
             Eсли Вы еще не зарегистрированы - сделайте это перейдя по <?= Html::a('ссылке', ['site/signup']) ?>.
         </div>
     <?php ActiveForm::end(); ?>

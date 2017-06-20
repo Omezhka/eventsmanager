@@ -32,6 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::submitButton('Регистрация', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
+                <p>При нажатии на кнопку "Регистрация" Вы соглашаетесь на обработку персональных данных. 
+                    <a href="http://www.consultant.ru/document/cons_doc_LAW_61801/">Федеральный закон "О персональных данных" от 27.07.2006 N 152-ФЗ (последняя редакция)</a>
+                </p>
             <?php ActiveForm::end(); ?>
         </div>
     </div>
