@@ -77,5 +77,7 @@ class Event extends \yii\db\ActiveRecord
         if ($this->datetimestart_event > $this->datetimestop_event ){
         $this->addError('datetimestop_event', 'Дата окончания мероприятия не может быть раньше начала!');}
     }
+
+    
     
 }

@@ -39,7 +39,8 @@ class SignupForm extends Model
             ['password', 'trim'],
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
-            
+          /*  ['password', 'match', 'pattern' => '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,12}$'],*/
+
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
             

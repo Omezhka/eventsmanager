@@ -64,16 +64,29 @@ class EventController extends Controller
      */
     public function actionMy()
     {
-        $searchModel = new EventSearch();
         $events = Event::find()->where(['id_owner' => Yii::$app->user->identity->id]);
         $dataProvider = new ActiveDataProvider(['query' => $events]);
-
-
-
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    public function actionRemove($id)
+    {
+        $request = Yii::$app->request;  
+
+        $user_id = $request->get('user_id');
+
+        $evmem = EventMembers::find()
+        ->where(['id_member' => $user_id, 'id_event' => $id])
+        ->one();
+
+        $evmem->delete();
+
+        return $this->redirect(['view', 'id' => $id]);
+
+
+        
     }
 
     public function actionRegister($id)

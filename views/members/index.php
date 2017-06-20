@@ -20,7 +20,7 @@ if (Members::userAdmin(Yii::$app->user->identity->id)): ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Members', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Members', ['../site/signup'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

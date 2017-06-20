@@ -24,7 +24,7 @@ $this->title = 'EventsManager';
         <h1>  EventsManager - это сервис регистрации и управления мероприятиями.</h1>
         <?php
             if (Yii::$app->user->isGuest) { ?>
-                <p class="lead">Для начала пользоваия сервисом зарегистрируйтесь или авторизуйтесь</p> 
+                <p class="lead">Для начала пользования сервисом зарегистрируйтесь или авторизуйтесь</p> 
                 <div class = "col-md-3 col-md-offset-3">        
                     <p><a class="btn btn-lg btn-success" href="site/login">Авторизация</a></p>
                 </div>    

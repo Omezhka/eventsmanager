@@ -81,6 +81,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <?= ListView::widget([
         'dataProvider' => $provider,
         'itemView' => '../members/_members',
+        'viewParams' => [
+            'eventId' => $model->id,
+        ]
     ]); 
  ?>
 
