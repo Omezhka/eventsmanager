@@ -38,7 +38,7 @@ class Members extends \yii\db\ActiveRecord
             [['firstname_rus', 'firstname_eng', 'lastname_rus', 'lastname_eng', 'country', 'city', 'company', 'mail'], 'required'],
             [['firstname_rus', 'firstname_eng', 'lastname_rus', 'lastname_eng', 'country', 'city', 'company', 'mail'], 'string', 'max' => 255],
             [['username', 'mail'], 'trim'],
-        ];
+            ];
     }
 
     /**

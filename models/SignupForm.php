@@ -39,7 +39,7 @@ class SignupForm extends Model
             ['password', 'trim'],
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
-
+            
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
             
