@@ -62,7 +62,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]);
-    ?>
+    ?> 
+   <p> Для установки Desktop приложения перейдите по ссылке 
+   <a href="https://habrahabr.ru"> EventsManager.Bages </a> </p> 
 </p>
  <?php endif; ?>
 </div>
