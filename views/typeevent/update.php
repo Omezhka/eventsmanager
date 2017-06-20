@@ -1,16 +1,17 @@
 <?php
 
 use yii\helpers\Html;
-
+use app\models\Members;
 /* @var $this yii\web\View */
 /* @var $model app\models\TypeEvent */
 
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'Type Event',
+if (Members::userAdmin(Yii::$app->user->identity->id)): 
+$this->title = Yii::t('app', 'Редактировать {modelClass}: ', [
+    'modelClass' => 'тип мероприятия',
 ]) . $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Type Events'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Типы мероприятий'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Редактировать');
 ?>
 <div class="type-event-update">
 
@@ -21,3 +22,8 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
     ]) ?>
 
 </div>
+
+
+<?php else: ?> 
+У вас нет доступа к этой странице
+<?php endif;?>

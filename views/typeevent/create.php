@@ -1,11 +1,12 @@
 <?php
 
 use yii\helpers\Html;
-
+use app\models\Members;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TypeEvent */
 
+if (Members::userAdmin(Yii::$app->user->identity->id)):
 $this->title = Yii::t('app', 'Добавление типа мероприятия');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Тип мероприятия'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -19,3 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+
+<?php else: ?> 
+У вас нет доступа к этой странице
+<?php endif;?>
