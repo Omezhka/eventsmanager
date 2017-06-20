@@ -33,6 +33,7 @@ class Event extends \yii\db\ActiveRecord
             [['datetimestart_event', 'datetimestop_event','id_type_event', 'name'], 'safe'],
             [['datetimestart_event'], 'default', 'value' => date('Y-m-d H:i:s')],
             [['datetimestop_event'], 'default', 'value' => date('Y-m-d H:i:s')],
+            ['datetimestop_event', 'validateDateTime'], 
             [['name'], 'string', 'max' => 500],
             [['event_list'], 'safe'],
         ];
@@ -69,6 +70,12 @@ class Event extends \yii\db\ActiveRecord
     public function getType()
     {
         return $this->hasOne(TypeEvent::className(), ['id' => 'id_type_event']); // 1 id - type_event, 2 id - event
+    }
+
+    public function validateDateTime()
+    {
+        if ($this->datetimestart_event > $this->datetimestop_event ){
+        $this->addError('datetimestop_event', 'Дата окончания мероприятия не может быть раньше начала!');}
     }
     
 }
