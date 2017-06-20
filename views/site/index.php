@@ -72,7 +72,7 @@ $this->title = 'EventsManager';
                             <div class="col-md-4 col-sm-6">
                                 <div class="service-item">
                                     <span class="glyphicon glyphicon-print"></span>
-                                    <p>С помощью Desktop программы можно печатать бейджи сразу после установки и авторизации </p>
+                                    <p>С помощью Desktop приложения можно печатать бейджи сразу после установки и авторизации </p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
